@@ -5,4 +5,4 @@
 - Registries
 - Docker COntainers
 
-![Docker Architecture](/images/DockerArch.png "Docker Architecture")
+![Docker Architecture](/images/DockerArch.PNG "Docker Architecture")
