@@ -31,6 +31,9 @@ Output
 -p indicates port; 3639 is host port and 80 is container port
 -d indicates detached mode
 
+### Stop the running containers
+`docker stop nginx`
+
 ### Remove all stopped containers
 `docker rm $(docker ps -a -q)`
 
@@ -38,7 +41,6 @@ This is a combination of 2 commands.
 $(docker ps -a -q) gives the IDs of containers
 docker rm removes the container
 
+### Storage of Docker Containers
 
-### Remove all stopped containers
-`docker rm $(docker ps -a -q)`
-
+`docker system df`
