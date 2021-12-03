@@ -7,3 +7,5 @@ Docker containers does not start when they exit or deamon is restarted.
 | no-failure  | restart if it fails        |
 | unless-stopped| restart unless explicitly stopped     |
 | always   | Always restart        |
+
+`docker container run -d --restart unless-stopped nginx`
