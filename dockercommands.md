@@ -5,6 +5,11 @@
 
 Common COMMAND : run, build,rm,start, stop..
 
+Docker expects us to run commands as below
+`docker category child-command`
+
+`docker image ls`
+
 ### Running our first container
 
 `docker run -p 3636:80 -dt nginx`
@@ -15,6 +20,9 @@ Common COMMAND : run, build,rm,start, stop..
 Output
 ![Docker Run Command](/images/runOutput.PNG "Docker Run Command")
 
+`docker run` = `docker create` + `docker start`
+
+run is combination of creating a container from image and then starting the container 
 
 ### List the Running containers
 `docker ps`
@@ -39,8 +47,9 @@ Output
 
 This is a combination of 2 commands.
 $(docker ps -a -q) gives the IDs of containers
-docker rm removes the container
+docker rm removes the container. 
 
 ### Storage of Docker Containers
 
 `docker system df`
+ 
