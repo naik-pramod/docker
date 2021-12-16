@@ -46,10 +46,29 @@ run is combination of creating a container from image and then starting the cont
 `docker rm $(docker ps -a -q)`
 
 This is a combination of 2 commands.
-$(docker ps -a -q) gives the IDs of containers
+(docker ps -a -q) gives the IDs of containers
 docker rm removes the container. 
 
 ### Storage of Docker Containers
-
 `docker system df`
+
+### -it
+`docker container exec -i -t nginx-test /bin/bash`
+The -i flag is shorthand for --interactive, which instructs Docker to keep stdin open so that we can send commands to the process. The -t flag is short for –tty and allocates a pseudo-TTY to the session.
  
+ ### pause and unpause
+ `docker container pause nginx1`
+
+  `docker container unpause nginx1`
+
+### stop and remove
+`docker container stop redis`
+
+`docker container rm redis`
+
+### List Volumes
+`docker volume ls`
+
+### Inspect Volume
+`docker volume inspect redis_data`
+

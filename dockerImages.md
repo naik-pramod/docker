@@ -17,9 +17,37 @@ RUN apt-get install -y nginx
 COPY index.nginx-debian.html /var/www/html
 CMD nginx -g 'daemon off;'
 
+### FROM
+The FROM instruction tells Docker which base you would like to use for your image.
+
+### LABEL
+The LABEL instruction can be used to add extra information to the image. This information can be anything from a version number to a description.
+You can view the containers’ labels with the following docker inspect command.
+`docker image inspect <Image ID>`
+
+Alternatively, you can use the following command to filter just the labels:
+
+`$ docker image inspect -f {{.Config.Labels}} <IMAGE_ID>`
+
+`LABEL maintainer=”Pramod Naik”
+
+LABEL description=”This example Dockerfile installs nginx.”`
+
+### RUN
+The RUN instruction is where we interact with our image to install software and run scripts, commands, and other tasks.
+
+RUN apk add --update nginx && \
+
+    rm -rf /var/cache/apk/* && \
+
+    mkdir -p /tmp/nginx/
+
+**The && operator to move on to the next command if the previous command was successful.
+We are also using \, which allows us to split the command over multiple lines, making it even easier to read.**
 
 ### COPY vs ADD
 COPY take in source and destination as local file or directory only.
+The ADD instruction can also be used to add content from remote sources. 
 ADD take in source and destination as local file or directory, url, tar file.
 
 
@@ -41,6 +69,7 @@ The above snippet will set /root/demo as working directory and then run the RUN 
 
 ### ENV
 This instruction sets the environment variable <key> to the <value>
+The ENV instruction sets ENVs within the image both when it is built and when it is executed
 
 ENV NGINX 1.2
 RUN curl -SL http://example.com/web-%NGINX.tar.xz

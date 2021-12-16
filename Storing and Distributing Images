@@ -1,0 +1,16 @@
+## Storing and Distributing Images
+
+### Docker Hub
+Docker Hub, which has both a freely available option, where you can only host publicly accessible images, and also a subscription option, which allows you to host your own private images. 
+
+To do this, we first need to link our local Docker client to Docker Hub by running the following command:
+
+`docker login`
+
+You will then be prompted for your Docker ID and password.
+
+
+`docker build --tag masteringdockerfouthedition/scratch-example:latest .`
+
+`docker image push masteringdockerfouthedition/scratch-example:latest `
+
